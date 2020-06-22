@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Домашнее задание</title>
+    </head>
+    <body>
+        <h1>Домашенька</h1>
+            <p>1. Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в градусах по Фаренгейту.</p>
+            <button onclick="convert_temperature()">Решение</button>
+
+            <p>Объявить две переменные: admin и name. Записать в name строку "Василий"; Скопировать значение из name в admin. Вывести admin (должно вывести «Василий»).</p>
+            <button onclick="variable_swap()">Решение</button>
+
+            <p>Чему будет равно выражение 1000 + "108"? "1000108" из-за динамиечской типизации</p>
+            <button onclick="dynamic_typization()">Решение</button>
+
+            <p>Самостоятельно разобраться с атрибутами тега script (async и defer)</p>
+            <button onclick="async_vs_defer()">Решение</button>
+        <script>
+            function convert_temperature() {
+                let temperature = prompt('Enter temperature in celsius and look in console for fahrenheit equivalent');
+                console.log((9 /5) * temperature + 32);
+            }
+
+            function variable_swap() {
+                let name = 'Василий', admin = '';
+                admin = name;
+                console.log(admin);
+            }
+
+            function dynamic_typization() {
+                console.log(1000 + "108" )
+            }
+
+            function async_vs_defer() {
+                console.log('оба они работают в бэкграунде, не мешая загрузке страницы. async в отличии от defer начинает загрузку всего документа сразу и выполняет скрипты по окончанию их загрузки, даже до полной загрузки изначальной страницы, если скрипт достаточно маленький или лежит в кэше. defer же загружает и выполняет все по очереди. это может быть необходимо при использовании сложных зависимостей')
+            }
+        </script>
+    </body>
+</html>
