@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашенька 3</title>
+
+        <p>С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+            Простые числа делятся только на себя и на единицу</p>
+        <button onclick="primeNumbers()">Решение</button>
+
+        <p>4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла. Выглядеть это должно так:
+            for(…){// здесь пусто}</p>
+        <button onclick="forCycle()">Решение</button>
+
+        <p>5. *Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+        </p>
+        <button onclick="drawPyramid()">Решение</button>
+
+    <script>
+        function primeNumbers(){
+            let num = 1;
+            let limit = 100;
+            let result = []
+
+            while (num < limit) {
+                if (isPrime(num) == true){
+                    result.push(num)
+                }
+                num++;
+            };
+            console.log(result)
+        };
+
+        function isPrime(number) {
+            let start = 2;
+            let limit = Math.sqrt(number);
+
+            if (number === 1) return true;
+            while (start <= limit) {
+                if (number % start++ < 1) return false;
+            }
+            return number > 1;
+        };
+
+        function forCycle(){
+            for(i = 0; i < 10; console.log(i++)){};
+        };
+
+        function drawPyramid(){
+            let levels = 5;
+            let current_level = 1;
+
+            while (current_level < levels + 1){
+                let result = '';
+                let tmp = current_level;
+                while (tmp > 0) {
+                    result += 'x';
+                    tmp--;
+                };
+                console.log(result);
+                current_level++;
+            }
+        }
+
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
