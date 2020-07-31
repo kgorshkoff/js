@@ -45,6 +45,42 @@
             }
             console.log(result);
         }
+
+
+        // hw2
+        const products = ['Jeans', 'Shorts', 'Socks']
+        const sizes = ['S', 'M', 'L', 'XL']
+        const prices = [24.99, 29.99, 39.99, 42.99]
+        
+        function createProducts() {
+            let arr = [];
+            products.forEach((product, index) => {
+                let id = 'product_' + index;
+                arr.push(createProduct(product, sizes, prices, id))
+            })
+            return arr
+        }
+
+        function createProduct(item, sizes, prices, _id) {
+            return {
+                item, sizes, prices, _id
+            }
+
+        }
+
+        const catalog = {
+            items: [],
+            init() {
+                this.items = createProducts()
+            },
+            addToBasket(product_id) {
+                this.items.forEach((item) => {
+                    if (item._id === product_id)
+                        return item;
+                })
+            }
+        }
+
     </script>
 
 </body>
