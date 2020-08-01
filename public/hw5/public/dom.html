@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <strong>DOM</strong>
+
+    <ul id="test-ul">
+        <li class="test">one</li>
+        <li class="test">two</li>
+        <li class="test">three</li>
+    </ul>
+<script>
+    let ul = document.querySelector('#test-ul')
+    // let newLi = document.createElement('li')
+    //
+    // newLi.innerHTML = 'four';
+    // newLi.classList.add('test');
+    //
+    // ul.appendChild(newLi);
+    //
+    // function createNew(tag, nClass, innerText) {
+    //     let obj = document.createElement(tag)
+    //
+    //     obj.innerHTML = innerText;
+    //     obj.classList.add(nClass);
+    //
+    //     return obj
+    // }
+    //
+    // ul.appendChild(createNew('li', 'test', 'five'))
+
+    function createNew(tag, innerText, nClass) {
+        return `<${tag} class=<"${nClass}">${innerText}</${tag}>`
+    }
+
+    ul.innerHTML += createNew('li', 'four', 'text');
+    ul.innerHTML += createNew('li', 'five', 'text');
+    ul.innerHTML += createNew('li', 'six', 'text');
+</script>
+</body>
+</html>
