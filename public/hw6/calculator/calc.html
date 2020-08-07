@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашенька</title>
+    <link rel="stylesheet" type="text/css" href="calc.css">
+</head>
+<body>
+    <div id="app">
+        <div class="calc-body">
+            <input type="text" id="result" disabled>
+            <br>
+            <div class="calc-button-row" style="width: 100%">
+                <button class="button" name="num" data-value="1">1</button>
+                <button class="button" name="num" data-value="2">2</button>
+                <button class="button" name="num" data-value="3">3</button>
+                <button class="button" name="op" data-value="plus">+</button>
+            </div>
+            <div>
+                <button class="button" name="num" data-value="4">4</button>
+                <button class="button" name="num" data-value="5">5</button>
+                <button class="button" name="num" data-value="6">6</button>
+                <button class="button" name="op" data-value="minus">-</button>
+            </div>
+            <div>
+                <button class="button" name="num" data-value="7">7</button>
+                <button class="button" name="num" data-value="8">8</button>
+                <button class="button" name="num" data-value="9">9</button>
+                <button class="button" name="op" data-value="multiply">*</button>
+            </div>
+            <div>
+                <button class="button" name="num" data-value="0">0</button>
+                <button class="button" name="num" data-value=".">.</button>
+                <button class="button" name="cls" data-value="cls">C</button>
+                <button class="button" name="op" data-value="divide">/</button>
+            </div>
+            <div>
+                <button class="button-res" name="res">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let calculator = {
+            cont: document.querySelector('#app'),
+            input: document.querySelector('#result'),
+            op: '',
+            a: 0,
+            b: 0,
+            _init() {
+                this.cont.addEventListener('click', evt => {
+                    switch (evt.target.name) {
+                        case 'num':
+                            this.input.value += evt.target.dataset.value;
+                            break
+                        case 'op':
+                            this.action(evt.target.dataset.value);
+                            break
+                        case 'res':
+                            this.result();
+                            break
+                        case 'cls':
+                            this.a = 0;
+                            this.b = 0;
+                            this.op = '';
+                            this.input.value = '';
+                            break
+                    }
+                })
+            },
+            action(op) {
+                this.a = +this.input.value;
+                this.input.value = '';
+                this.op = op;
+            },
+            result() {
+                this.b = +this.input.value;
+                switch (this.op) {
+                    case 'plus':
+                        result = this.a + this.b;
+                        break
+                    case 'minus':
+                        result = this.a - this.b;
+                        break
+                    case 'multiply':
+                        result = this.a * this.b;
+                        break
+                    case 'divide':
+                        result = this.a / this.b;
+                        break
+                };
+                this.input.value = result
+            }
+        }
+        calculator._init()
+    </script>
+</body>
+</html>
